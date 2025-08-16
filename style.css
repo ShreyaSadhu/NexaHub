@@ -1,0 +1,327 @@
+/* --------------------- General --------------------- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: lightgray;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+    background-color: #001f7c38;
+}
+
+/* --------------------- Background Video --------------------- */
+/* .back-vid {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    mix-blend-mode: overlay;
+} */
+
+.back-vid {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0; /* lower than form */
+    mix-blend-mode: overlay;
+    pointer-events: none; /* crucial: allow clicks through */
+}
+
+
+/* --------------------- Loader --------------------- */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Smooth text reveal */
+#typing-text {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 6.5rem;
+    color: #007bff;
+    letter-spacing: 0.1em;
+}
+
+/* --------------------- Hero Section --------------------- */
+.hero {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.hero-info {
+    position: absolute;
+    left: 5%;
+    z-index: 2;
+}
+
+.hero-info .hero-info-title {
+    color: #72a1de;
+    padding: 8px 5px;
+    border-radius: 50px;
+    border: 1px solid #72a1de94;
+    width: 240px;
+    background-color: #2200493d;
+    box-shadow: 0 0 5px #72a1de84;
+}
+
+.hero-info h1 {
+    font-size: 60px;
+    max-width: 600px;
+    font-weight: 700;
+    line-height: 70px;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.hero-info p {
+    max-width: 550px;
+    line-height: 25px;
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+
+.hero-info button {
+    color: white;
+    padding: 15px 35px;
+    border-radius: 10px;
+    border: 1px solid #72a1de81;
+    background-color: #2200493d;
+    box-shadow: 0 0 5px #72a1de81;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.hero-info button:hover {
+    box-shadow: 0 0 15px #72a1de81;
+}
+
+/* --------------------- Gradient Animation --------------------- */
+.gradient {
+    background: linear-gradient(to right, #00aaa7, #7e42a7, #6600c5, #6070fd, #2a46ff, #0099ff, #008ead);
+    background-size: 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animate-gradient 2.5s linear infinite;
+}
+
+@keyframes animate-gradient {
+    to {
+        background-position: 200%;
+    }
+}
+
+/* --------------------- Blackhole Video --------------------- */
+.blackhole-box {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+    mix-blend-mode: lighten;
+}
+
+.blackhole-box video{
+    width: 100%;
+    margin-top: -23.5%;
+}
+
+
+/* --------------------- Skills Video --------------------- */
+.skills-video-box {
+    position: absolute;
+    right: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -2;
+}
+
+.skills-video {
+    max-width: 500px;
+    width: auto;
+    height: 900px;
+    object-fit: cover;
+    mix-blend-mode:lighten;
+}
+
+/* .skills-video{
+    height: 900px;
+    mix-blend-mode:lighten;
+} */
+
+/* --------------------- Scroll Down --------------------- */
+.scroll-down {
+    height: 50px;
+    width: 30px;
+    border: 2px solid lightgray;
+    position: absolute;
+    left: 49%;
+    bottom: 8%;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.626);
+}
+
+.scroll-down::before,
+.scroll-down::after {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    height: 10px;
+    width: 10px;
+    transform: translate(-50%, -100%) rotate(45deg);
+    border: 2px solid lightgray;
+    border-top: transparent;
+    border-left: transparent;
+    animation: scroll-down 2s ease-in-out infinite;
+}
+
+.scroll-down::before {
+    top: 30%;
+    animation-delay: 0.5s;
+}
+
+@keyframes scroll-down {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        top: 90%;
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* --------------------- Responsive --------------------- */
+@media (max-width: 1024px) {
+    .hero-info h1 {
+        font-size: 45px;
+        line-height: 55px;
+    }
+
+    .hero-info p {
+        font-size: 18px;
+    }
+
+    .skills-video {
+        max-width: 350px;
+        height: 60vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+        padding: 50px 0;
+    }
+
+    .hero-info {
+        position: relative;
+        left: 0;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .hero-info h1 {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .hero-info p {
+        max-width: 90%;
+        margin: 0 auto 30px auto;
+    }
+
+    .skills-video-box {
+        position: relative;
+        top: 0;
+        right: 0;
+        /* transform: none; */
+        max-width: 90%;
+        margin: 0 auto;
+        
+    }
+
+    .skills-video {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .blackhole-box video {
+        height: 50vh;
+    }
+}
+
+@media (max-width: 480px) {
+    #typing-text {
+        font-size: 3rem;
+    }
+
+    .hero-info h1 {
+        font-size: 28px;
+        line-height: 36px;
+    }
+
+    .hero-info p {
+        font-size: 16px;
+    }
+
+    .skills-video {
+        height: 40vh;
+        top: 70%;
+    }
+}
+
+
+
+
+
+/* INFO */
